@@ -27,7 +27,8 @@ SECRET_KEY = 'django-insecure-)xw!!mzh$k)8i)xnpy%_dn1a4c3%zrdu(yd+$&1dujrm5b)yg7
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-fenasti-desla-2tbj1n8eemn.ws.codeinstitute-ide.net'
+    '8000-fenasti-desla-2tbj1n8eemn.ws.codeinstitute-ide.net',
+    '127.0.0.1',
 ]
 
 # Application definition
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'home',
+    'products',
 ]
 
 MIDDLEWARE = [
