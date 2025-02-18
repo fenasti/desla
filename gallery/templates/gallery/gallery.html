@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}- Gallery{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container py-5">
+    <h1 class="text-center mb-4">Gallery</h1>
+
+    <!-- Filter Buttons -->
+    <div class="text-center mb-4 mt-5 pt-4">
+        <button class="btn btn-outline-dark mx-1 filter-btn" data-category="all">All</button>
+        <button class="btn btn-outline-dark mx-1 filter-btn" data-category="Illustrations">Illustrations</button>
+        <button class="btn btn-outline-dark mx-1 filter-btn" data-category="Graffiti">Graffiti</button>
+        <button class="btn btn-outline-dark mx-1 filter-btn" data-category="Tattoo">Tattoo</button>
+    </div> 
+
+    <!-- Gallery Grid -->
+    <div class="row">
+        {% for item in items %}
+        <div class="col-md-4 gallery-item" data-category="{{ item.category }}">
+            <img src="{{ item.image.url }}" class="img-fluid" alt="{{ item.category }}">
+        </div>
+        {% empty %}
+        <p class="text-center">No items in the gallery yet.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+<script>
+    document.querySelectorAll('.filter-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            let category = this.getAttribute('data-category');
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                if (category === "all" || item.getAttribute('data-category') === category) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

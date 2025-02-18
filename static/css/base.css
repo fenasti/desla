@@ -10,6 +10,7 @@ body {
     font-family: "Rubik Mono One", serif;
     font-weight: 400;
     font-style: normal;
+    z-index: 1;
 }
 
 .overlay {

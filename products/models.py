@@ -2,11 +2,11 @@ from django.db import models
 
 class Product(models.Model):
     class Category(models.IntegerChoices):
-        ILLUSTRATION = 1, "Illustration"
-        GRAFFITI = 2, "Graffiti"
-        TATTOO = 3, "Tattoo"
-        CLOTHE = 4, "Clothing"
-        OTHER = 5, "Other"
+        PRINTS = 1, "Prints"
+        PAINTING = 2, "Paintings"
+        CLOTHE = 3, "Clothing"
+        OTHER = 4, "Other"
+        
 
     name = models.CharField(max_length=254)
     category = models.PositiveSmallIntegerField(choices=Category.choices, default=Category.OTHER)
