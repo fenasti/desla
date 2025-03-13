@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h2>Checkout</h2>
+
+<form id="checkout-form" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <h3>Order Summary</h3>
+    <ul>
+        {% for item in bag.items %}
+            <li>{{ item.product.name }} - {{ item.quantity }} x ${{ item.product.price }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Total: ${{ bag.total }}</h3>
+
+    <button type="submit" id="checkout-button">Pay with Stripe</button>
+</form>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+    var stripe = Stripe("{{ STRIPE_PUBLIC_KEY }}");
+    var checkoutForm = document.getElementById("checkout-form");
+
+    checkoutForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        fetch("{% url 'checkout' %}", {
+            method: "POST",
+            body: new FormData(checkoutForm),
+        })
+        .then(response => response.json())
+        .then(data => {
+            stripe.redirectToCheckout({ sessionId: data.session_id });
+        });
+    });
+</script>
+{% endblock %}

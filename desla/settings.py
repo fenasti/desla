@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'products',
     'gallery',
     'bag',
+    'checkout',
 ]
 
 MIDDLEWARE = [
@@ -160,6 +161,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
+
+STRIPE_PUBLIC_KEY = 'pk_test_51R2EyZGGUfL24QJ6LM9Rz1PHviuBLjN8wTLiQLou9HHb91LZHpTKGe0XzttxP7sVWJnQipC4lgxVl5XMfzzzRIBP00ayD69FvQ'
+STRIPE_SECRET_KEY = 'sk_test_51R2EyZGGUfL24QJ6MUY5SPUEkv1TVjz6mlARxAOPbzNFkgu3CdYABjppPVbWhm3J1ztI2zdS7p1nUu9U4EwQw53g00WtgpCtMe'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
