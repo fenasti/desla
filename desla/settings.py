@@ -18,9 +18,6 @@ if os.path.exists('env.py'):
 # Base directory
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Activate Django-Heroku settings
-django_heroku.settings(locals())
-
 # SECURITY WARNING: Keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY", "default-secret-key")
 
@@ -52,6 +49,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -159,3 +157,6 @@ STRIPE_WEBHOOK_SECRET = os.environ.get("STRIPE_WEBHOOK_SECRET", "")
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Activate Django-Heroku settings
+# django_heroku.settings(locals())
