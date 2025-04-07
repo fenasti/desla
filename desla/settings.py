@@ -9,7 +9,6 @@ from pathlib import Path
 import os
 
 import dj_database_url
-import django_heroku
 
 if os.path.exists('env.py'):
     import env
@@ -43,6 +42,8 @@ INSTALLED_APPS = [
     'bag',
     'checkout',
     'profiles',
+    'bookings',
+    # add ons
     'crispy_forms',
     'crispy_bootstrap4',
 ]
@@ -140,6 +141,8 @@ USE_TZ = True
 
 # Static and Media files
 STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 MEDIA_URL = '/media/'
@@ -157,6 +160,3 @@ STRIPE_WEBHOOK_SECRET = os.environ.get("STRIPE_WEBHOOK_SECRET", "")
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# Activate Django-Heroku settings
-# django_heroku.settings(locals())
