@@ -53,24 +53,25 @@
               {{ reservation.reservation_date }}
             </span> 
           </p>
-          <p>details:
-            <div>
-              {{ reservation.details | linebreaks }}
-            </div>
+        
+          <!-- Use a dedicated element to hold just the details -->
+          <p class="reservation-content" data-content="{{ reservation.details|escape }}">
+            {{ reservation.details | linebreaks }}
           </p>
+        
           {% if not reservation.approved %}
           <p class="approval">
             This reservation is awaiting approval
           </p>
           {% endif %}
-          <!-- Edit button -->
+        
           {% if user.is_authenticated and reservation.client == user %}
           <button type="button" class="btn btn-danger btn-delete" reservation_id="{{ reservation.id }}" data-bs-toggle="modal" data-bs-target="#deleteModal">
             Delete
           </button>
           <button class="btn btn-edit" reservation_id="{{ reservation.id }}">Edit</button>
           {% endif %}
-        </div>
+        </div>        
         {% empty %}
         <p>No reservations have been made yet.</p>
         {% endfor %}

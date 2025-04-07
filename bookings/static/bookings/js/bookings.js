@@ -20,10 +20,14 @@ const deleteConfirm = document.getElementById("deleteConfirm");
 for (let button of editButtons) {
   button.addEventListener("click", (e) => {
     let reservationId = e.target.getAttribute("reservation_id");
-    let reservationContent = document.getElementById(`reservation${reservationId}`).innerText;
+
+    let contentElement = document.querySelector(`#reservation${reservationId} .reservation-content`);
+    let reservationContent = contentElement.dataset.content || contentElement.innerText;
+
     reservationText.value = reservationContent;
     submitButton.innerText = "Update";
     reservationForm.setAttribute("action", `edit_reservation/${reservationId}`);
+
     console.log("Reservation ID:", reservationId);
     console.log("Reservation Content:", reservationContent);
   });
