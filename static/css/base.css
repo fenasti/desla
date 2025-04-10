@@ -40,6 +40,16 @@ body {
     width: fit-content;
 }
 
+.nav-item .nav-link {
+    color: inherit !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease !important;
+}
+
+.nav-item .nav-link:hover {
+    color: #ccc !important;
+}
+
 .shop-now-button {
     background: black;
     color: white;
@@ -73,6 +83,18 @@ body {
 .update-link,
 .remove-item {
     cursor: pointer;
+}
+
+/* footer */
+
+.footer-link {
+    color: inherit !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease !important;
+}
+
+.footer-link:hover {
+    color: #ccc !important;
 }
 
 /* -------------------------------- Media Queries */
