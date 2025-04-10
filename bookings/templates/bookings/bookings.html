@@ -12,20 +12,19 @@
     <!-- Title row -->
     <div class="row">
       <div class="col-12 text-center">
-        <h2>{{ reservation_display.title }}</h2>
+        <h2>Book your session with me!</h2>
       </div>
     </div>
     <!-- Content row -->
     <div class="row">
       <div class="col-12 text-center">
-        <p>{{ reservation_display.content | safe  }}</p>
+        <p>Explain your idea and i will contact you personaly for the details</p>
       </div>
     </div>
 </header>
-    
 <!-- Creating New Reservation -->
 <div class="row">
-    <div class="col-6 text-center">
+    <div class="col-12 col-md-6 text-center mb-4">
       <div class="card-body">
         {% if user.is_authenticated %}
           <h3>Make a Reservation:</h3>
@@ -40,7 +39,7 @@
       </div>
     </div>
   <!-- reservations display -->
-    <div class="col-6 text-center">
+    <div class="col-12 col-md-6 text-center mb-4">
       <h3>Your Reservations:</h3>
       <div class="card-body">
         <!-- Loop through reservations -->
@@ -84,7 +83,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="deleteModalLabel">Delete Reservation?</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
       </div>
       <div class="modal-body">
         Are you sure you want to delete this Reservation?
@@ -126,8 +125,4 @@
   </script>
 
   <script src="{% static 'bookings/js/bookings.js' %}"></script>
-
-  <script>
-    console.log("Static JS loaded!");
-  </script>
 {% endblock %}
