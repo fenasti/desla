@@ -57,7 +57,6 @@
           <p class="reservation-content" data-content="{{ reservation.details|escape }}">
             {{ reservation.details | linebreaks }}
           </p>
-        
           {% if not reservation.approved %}
           <p class="approval">
             This reservation is awaiting approval

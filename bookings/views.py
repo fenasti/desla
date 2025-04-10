@@ -1,12 +1,14 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from django.contrib import messages
+from django.conf import settings
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from .models import ReservationRequest
 from .forms import ReservationForm
 from django.utils import timezone
-from datetime import datetime
 
 
 @login_required
@@ -35,6 +37,8 @@ def reservation_page(request):
             # Set the client as the currently logged-in user
             reservation.client = request.user
             reservation.save()
+            
+            _send_booking_confirmation_email(reservation)
             # Add success message
             messages.add_message(
                 request, messages.SUCCESS,
@@ -104,3 +108,48 @@ def delete_reservation(request, reservation_id):
 
     # Redirigir a la página de reservas
     return HttpResponseRedirect(reverse('reservation'))
+
+def _send_booking_confirmation_email(reservation):
+    """Send confirmation emails to client and admin."""
+
+    # Email to the client
+    client_subject = render_to_string(
+        'bookings/confirmation_emails/booking_email_subject.txt'
+    ).strip()
+
+    client_body = render_to_string(
+        'bookings/confirmation_emails/booking_email_body.txt',
+        {
+            'user': reservation.client,
+            'reservation': reservation,
+            'contact_email': settings.DEFAULT_FROM_EMAIL
+        }
+    )
+
+    send_mail(
+        client_subject,
+        client_body,
+        settings.DEFAULT_FROM_EMAIL,
+        [reservation.client.email],
+        fail_silently=False,
+    )
+
+    # Email to the admin
+    admin_subject = f"New reservation from {reservation.client.username}"
+    admin_body = f"""
+    New reservation received:
+
+    User: {reservation.client.username}
+    Email: {reservation.client.email}
+    Date and Time: {reservation.reservation_date_time}
+
+    Please review and approve it from the admin panel.
+    """
+
+    send_mail(
+        admin_subject,
+        admin_body,
+        settings.DEFAULT_FROM_EMAIL,
+        [settings.DEFAULT_FROM_EMAIL],
+        fail_silently=False,
+    )

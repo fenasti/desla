@@ -1,0 +1,10 @@
+Hello {{ user.username }},
+
+Thank you for your reservation! We have received your request for:
+
+{{ reservation.reservation_date_time }}
+
+We’ll review and confirm shortly. If you need to contact us, reach us at {{ contact_email }}.
+
+Best regards,  
+The Team
