@@ -14,10 +14,11 @@ class Order(models.Model):
     # order no is going to be automatically generated,
     # we want it to be unique & permanent so users can find previous orders
     order_number = models.CharField(
-        max_length=32,
+        max_length=24,
         null=False,
         editable=False,
-        default=uuid.uuid4().hex.upper()  # Automatically generated unique order number
+        unique=True,
+        default=uuid.uuid4().hex[:24].upper()
     )
     user_profile = models.ForeignKey(
         UserProfile, on_delete=models.SET_NULL,

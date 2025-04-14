@@ -1,7 +1,7 @@
 {% load static %}
 {% load i18n %}
 <!-- Footer -->
-<footer class="footer mt-auto py-3 {% if request.path == '/' %}text-white{% elif request.path == '/bag/' %}d-none{% else %}text-black{% endif %}">
+<footer class="footer mt-auto py-3 {% if request.path == '/' or request.path == '/bookings/' %}text-white{% elif request.path == '/bag/' %}d-none{% else %}text-black{% endif %}">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -33,14 +33,14 @@
             <div class="col d-none d-md-block">
                 <div class="m-0 text-center ">
                     <div class="font-weight-bold">
-                        <a class="text-black footer-link" href="" target="_blank" rel="noopener">
+                        <a class="text-black footer-link" href="{% url 'contact' %}" target="_blank" rel="noopener">
                             Contact
                         </a>
                     </div>
                 </div>
                 <div class="m-0 text-center ">
                     <div class="font-weight-bold">
-                        <a class="text-black footer-link" href="" target="_blank" rel="noopener">
+                        <a class="text-black footer-link" href="{% url 'about' %}" target="_blank" rel="noopener">
                             About
                         </a>
                     </div>

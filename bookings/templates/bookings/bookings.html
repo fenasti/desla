@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{% static 'bookings/css/bookings.css' %}">
 {% endblock %}
 
-<header>
+<header class="text-white">
   <div class="container mt-5">
     <!-- Title row -->
     <div class="row">
@@ -23,7 +23,7 @@
     </div>
 </header>
 <!-- Creating New Reservation -->
-<div class="row">
+<div class="row text-white">
     <div class="col-12 col-md-6 text-center mb-4">
       <div class="card-body">
         {% if user.is_authenticated %}
@@ -31,7 +31,7 @@
           <form id="reservationForm" method="post" style="margin-top: 1.3em;">
           {{ reservation_form | crispy }}
           {% csrf_token %}
-          <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+          <button id="submitButton" type="submit" class="btn text-warning btn-lg">Submit</button>
           </form>
         {% else %}
           <p>Log in to make a reservation.</p>
