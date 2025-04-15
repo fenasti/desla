@@ -48,7 +48,7 @@ class Order(models.Model):
         blank_label='Country *',
         null=False,
         blank=False,  # Country must be provided
-        default='Germany'  # Default country, can be changed if necessary
+        default='DE'  # Default country, can be changed if necessary
     )
     postcode = models.CharField(
         max_length=20,
