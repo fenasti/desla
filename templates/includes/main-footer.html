@@ -3,47 +3,39 @@
 <!-- Footer -->
 <footer class="footer mt-auto py-3 {% if request.path == '/' or request.path == '/bookings/' %}text-white{% elif request.path == '/bag/' %}d-none{% else %}text-black{% endif %}">
     <div class="container">
-        <div class="row">
-            <div class="col">
-                <p class="m-0 text-center">Follow us: 
-                    <a class="text-black footer-link" href="https://www.facebook.com/profile.php?id=61568340493717/" target="_blank" rel="noopener">
-                        <i class="fa-brands fa-square-facebook ms-3"></i>
+        <div class="row text-center text-md-start gy-4">
+            <div class="col-12 col-md-4">
+                <p class="m-0">
+                    Follow us: 
+                    <a class="footer-link text-black ms-2" href="https://www.facebook.com/profile.php?id=61568340493717/" target="_blank" rel="noopener">
+                        <i class="fa-brands fa-square-facebook"></i>
                     </a>
-                    <a class="text-black footer-link" href="https://www.twitter.com/" target="_blank" rel="noopener">
-                        <i class="fab fa-twitter-square ms-3"></i>
+                    <a class="footer-link text-black ms-2" href="https://www.twitter.com/" target="_blank" rel="noopener">
+                        <i class="fab fa-twitter-square"></i>
                     </a>
-                    <a class="text-black footer-link" href="https://www.instagram.com/" target="_blank" rel="noopener">
-                        <i class="fab fa-instagram-square ms-3"></i>
+                    <a class="footer-link text-black ms-2" href="https://www.instagram.com/" target="_blank" rel="noopener">
+                        <i class="fab fa-instagram-square"></i>
                     </a>
-                    <a class="text-black footer-link" href="https://www.youtube.com/" target="_blank" rel="noopener">
-                        <i class="fab fa-youtube-square ms-3"></i>
+                    <a class="footer-link text-black ms-2" href="https://www.youtube.com/" target="_blank" rel="noopener">
+                        <i class="fab fa-youtube-square"></i>
                     </a>
-                    <h6>Made by Felipe Nast</h6>
                 </p>
             </div>
-            <div class="col d-none d-md-block">
-                <div class="m-0 text-center ">
-                    <div class="font-weight-bold">
-                        <a class="text-black footer-link" href="https://www.termsfeed.com/live/d28c4f75-f022-4eeb-ad6d-2b447db1a1e4" target="_blank" rel="noopener">
-                            Privacy Policy
-                        </a>
-                    </div>
+            <div class="col-12 col-md-4">
+                <div class="font-weight-bold">
+                    <a class="footer-link text-black" href="https://www.termsfeed.com/live/d28c4f75-f022-4eeb-ad6d-2b447db1a1e4" target="_blank" rel="noopener">
+                        Privacy Policy
+                    </a>
                 </div>
             </div>
-            <div class="col d-none d-md-block">
-                <div class="m-0 text-center ">
-                    <div class="font-weight-bold">
-                        <a class="text-black footer-link" href="{% url 'contact' %}" target="_blank" rel="noopener">
-                            Contact
-                        </a>
-                    </div>
-                </div>
-                <div class="m-0 text-center ">
-                    <div class="font-weight-bold">
-                        <a class="text-black footer-link" href="{% url 'about' %}" target="_blank" rel="noopener">
-                            About
-                        </a>
-                    </div>
+            <div class="col-12 col-md-4">
+                <div class="font-weight-bold">
+                    <a class="footer-link text-black d-block mb-1" href="{% url 'contact' %}" target="_blank" rel="noopener">
+                        Contact
+                    </a>
+                    <a class="footer-link text-black d-block" href="{% url 'about' %}" target="_blank" rel="noopener">
+                        About
+                    </a>
                 </div>
             </div>
         </div>
