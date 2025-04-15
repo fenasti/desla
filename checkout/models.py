@@ -172,7 +172,7 @@ class OrderLineItem(models.Model):
         on_delete=models.CASCADE
     )
     product_size = models.CharField(
-        max_length=2,
+        max_length=5,
         null=True,
         blank=True
     )  # Sizes: XS, S, M, L, XL
