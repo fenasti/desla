@@ -1,5 +1,7 @@
 {% extends "base.html" %}
+
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block page_header %}
     <div class="container header-container">
@@ -10,16 +12,50 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container h-100">
-        <div class="row h-100">
-            <div class="col-7 col-md-6 my-auto">
-                <h1 class="logo-font text-white display-4 display-md-3 display-sm-2 display-xs-1">
-                    The new collections are here
-                </h1>
-                <div class="my-5">
-                    <h4>
-                        <a href="" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Shop Now</a>
-                    </h4>
+    <!-- Full screen section adjusted to match navbar height -->
+    <div class="full-screen-section d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 my-auto text-center">
+                    <h1 class="display-4 text-white">Original Art Prints & Tattoo Bookings</h1>
+                    <p class="text-light mt-3">Shop unique illustrations or book your next tattoo session online.</p>
+                </div>
+                <div class="col-12 col-md-4 my-auto text-center">
+                    <a href="{% url 'products' %}" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">
+                        Visit the Art Shop
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Banner stays the same -->
+    <!-- <div class="container-fluid bg-warning py-2 mt-4 banner">
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <h5 class="text-dark mb-0">
+                    Limited edition prints available now — don't miss out!
+                </h5>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Content cards -->
+    <div class="container my-5">
+        <div class="row align-items-center">
+            <div class="col-12 col-md-5 mb-4 mb-md-0">
+                <img src="{{ MEDIA_URL }}studio-sample.jpg" alt="Collage of artworks" class="styled-image img-fluid rounded shadow">
+            </div>
+            <div class="col-12 col-md-7">
+                <div class="custom-card p-4 shadow">
+                    <h5 class="card-title text-uppercase mb-3">Ink & Illustration Studio</h5>
+                    <p class="card-text">
+                        <strong>Ink & Illustration</strong> is your one-stop destination for original hand-drawn artwork and custom tattoos. Browse our curated collection of limited edition prints, stickers, and apparel, or book a personalized tattoo session directly through the site.
+                        <br><br>
+                        We offer flash designs, full custom pieces, and creative collaborations—all handcrafted by our resident artist. Whether you're decorating your walls or your skin, you're supporting local art with each purchase.
+                        <br><br>
+                        Stay inspired, shop unique, and book your next creative transformation with us.
+                    </p>
                 </div>
             </div>
         </div>
