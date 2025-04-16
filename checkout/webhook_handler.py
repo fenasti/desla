@@ -168,3 +168,21 @@ class StripeWH_Handler:
         return HttpResponse(
             content=f'Webhook received: {event["type"]}',
             status=200)
+
+    def handle_checkout_session_completed(self, event):
+        """
+        Handle the checkout.session.completed webhook from Stripe
+        """
+        session = event.data.object  # contains a stripe.checkout.Session object
+        order_number = session.client_reference_id  # Reference the order number here
+
+        # You can find the order from your database using the order number
+        try:
+            order = Order.objects.get(order_number=order_number)
+            # Mark the order as successful and do any other necessary processing
+            order.payment_status = 'Paid'
+            order.save()
+            self._send_confirmation_email(order)
+            return HttpResponse(content=f'Webhook received: {event["type"]} | SUCCESS', status=200)
+        except Order.DoesNotExist:
+            return HttpResponse(content=f'Order not found: {order_number}', status=404)
