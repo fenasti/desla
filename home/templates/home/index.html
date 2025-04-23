@@ -15,12 +15,19 @@
     <!-- Full screen section adjusted to match navbar height -->
     <div class="full-screen-section d-flex align-items-center pt-5">
         <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-6 my-auto text-center">
-                    <h1 class="display-4 text-white">Original Art Prints & Tattoo Bookings</h1>
-                    <p class="text-light mt-3">Shop unique illustrations or book your next tattoo session online.</p>
+            <div class="row justify-content-center text-center text-md-start">
+                <!-- Text Column -->
+                <div class="col-12 col-md-6 my-auto">
+                    <h1 class="text-white fw-bold fs-2 fs-md-1 px-3 px-md-0">
+                        Original Art Prints & Tattoo Bookings
+                    </h1>
+                    <p class="text-light mt-3 px-3 px-md-0">
+                        Shop unique illustrations or book your next tattoo session online.
+                    </p>
                 </div>
-                <div class="col-12 col-md-4 my-auto text-center">
+    
+                <!-- Button Column -->
+                <div class="col-12 col-md-4 d-flex justify-content-center align-items-center text-center text-md-start mt-4 mt-md-0">
                     <a href="{% url 'products' %}" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">
                         Visit the Art Shop
                     </a>
@@ -28,6 +35,7 @@
             </div>
         </div>
     </div>
+    
 
     <!-- Banner stays the same -->
     <!-- <div class="container-fluid bg-warning py-2 mt-4 banner">

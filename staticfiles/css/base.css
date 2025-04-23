@@ -5,12 +5,17 @@ html {
 body {
     background: url('/media/desla-fondo.jpeg') no-repeat center center fixed;
     background-size: cover;
-    height: calc(100vh - 164px);
+    height: 100dvh;
+    /* height: calc(100vh - 164px); */
     color: #555;
     font-family: "Rubik Mono One", serif;
     font-weight: 400;
     font-style: normal;
     z-index: 1;
+}
+
+html, body {
+    transform: translateZ(0);
 }
 
 .overlay {
@@ -23,13 +28,21 @@ body {
 	z-index: -1;
 }
 
+h1.display-4 {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
 /* hero */
 
 .full-screen-section {
-    height: calc(100vh - 164px); /* Adjusts for your fixed navbar height */
-    display: flex;
-    align-items: center;
+    min-height: 100vh; /* Full screen */
+    padding-top: calc(var(--bs-navbar-height, 70px) + 1rem); /* Optional: offset for navbar */
+    padding-bottom: 2rem;
 }
+
 
 /* contact and about */
 
@@ -285,9 +298,9 @@ body {
   
   /* pad the top a bit when navbar is collapsed on mobile */
   @media (max-width: 991px) {
-    /* .header-container {
+    .header-container {
         padding-top: 116px;
-    } */
+    }
   
     body {
         height: calc(100vh - 116px);
@@ -309,3 +322,9 @@ body {
         padding: 0;
     }
   }
+
+  @media (max-width: 768px) {
+    .full-screen-section {
+        padding-top: 5rem; /* Mobile safe padding */
+    }
+}
