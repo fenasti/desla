@@ -2,20 +2,6 @@
 
 An e-commerce web application designed for **Desla**, a professional artist and tattoo studio. This platform allows users to browse and purchase original artwork, book tattoo sessions, and explore a gallery of finished pieces. Built using **Django**, **PostgreSQL**, **Stripe**, and **AWS S3**, it offers a seamless and secure shopping and booking experience.
 
----
-
-## 📋 Table of Contents
-- [About the Project](#about-the-project)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Installation and Setup](#installation-and-setup)
-- [Usage](#usage)
-- [Deployment](#deployment)
-- [Credits](#credits)
-- [License](#license)
-
----
-
 ## 🖌️ About the Project
 
 **Desla Art & Tattoo** is an online platform that connects customers with Desla's unique artwork and professional tattoo services.  
