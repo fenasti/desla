@@ -1,3 +1,5 @@
+Deployed project: https://desla-d87b87e86338.herokuapp.com/
+
 # Desla Art & Tattoo E-commerce
 
 An e-commerce web application designed for **Desla**, a professional artist and tattoo studio. This platform allows users to browse and purchase original artwork, book tattoo sessions, and explore a gallery of finished pieces. Built using **Django**, **PostgreSQL**, **Stripe**, and **AWS S3**, it offers a seamless and secure shopping and booking experience.
